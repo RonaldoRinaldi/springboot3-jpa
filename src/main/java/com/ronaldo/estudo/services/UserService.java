@@ -1,4 +1,4 @@
-package com.educandoweb.course.services;
+package com.ronaldo.estudo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,10 +8,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.educandoweb.course.entities.User;
-import com.educandoweb.course.repositories.UserRepository;
-import com.educandoweb.course.services.exceptions.DatabaseException;
-import com.educandoweb.course.services.exceptions.ResourceNotFoundException;
+import com.ronaldo.estudo.entities.User;
+import com.ronaldo.estudo.repositories.UserRepository;
+import com.ronaldo.estudo.services.exceptions.DatabaseException;
+import com.ronaldo.estudo.services.exceptions.ResourceNotFoundException;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -29,11 +29,11 @@ public class UserService {
 		Optional<User> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
-	
+
 	public User insert(User obj) {
 		return repository.save(obj);
 	}
-	
+
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
@@ -43,7 +43,7 @@ public class UserService {
 			throw new DatabaseException(e.getMessage());
 		}
 	}
-	
+
 	public User update(Long id, User obj) {
 		try {
 			User entity = repository.getReferenceById(id);
@@ -51,7 +51,7 @@ public class UserService {
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
-		}	
+		}
 	}
 
 	private void updateData(User entity, User obj) {

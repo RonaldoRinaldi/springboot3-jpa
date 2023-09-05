@@ -1,4 +1,4 @@
-package com.educandoweb.course.entities;
+package com.ronaldo.estudo.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class User implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
-	
+
 	public User() {
 	}
 
@@ -85,7 +85,7 @@ public class User implements Serializable {
 	public List<Order> getOrders() {
 		return orders;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

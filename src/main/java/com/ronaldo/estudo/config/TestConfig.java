@@ -1,4 +1,4 @@
-package com.educandoweb.course.config;
+package com.ronaldo.estudo.config;
 
 import java.time.Instant;
 import java.util.Arrays;
@@ -8,18 +8,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.educandoweb.course.entities.Category;
-import com.educandoweb.course.entities.Order;
-import com.educandoweb.course.entities.OrderItem;
-import com.educandoweb.course.entities.Payment;
-import com.educandoweb.course.entities.Product;
-import com.educandoweb.course.entities.User;
-import com.educandoweb.course.entities.enums.OrderStatus;
-import com.educandoweb.course.repositories.CategoryRepository;
-import com.educandoweb.course.repositories.OrderItemRepository;
-import com.educandoweb.course.repositories.OrderRepository;
-import com.educandoweb.course.repositories.ProductRepository;
-import com.educandoweb.course.repositories.UserRepository;
+import com.ronaldo.estudo.entities.Category;
+import com.ronaldo.estudo.entities.Order;
+import com.ronaldo.estudo.entities.OrderItem;
+import com.ronaldo.estudo.entities.Payment;
+import com.ronaldo.estudo.entities.Product;
+import com.ronaldo.estudo.entities.User;
+import com.ronaldo.estudo.entities.enums.OrderStatus;
+import com.ronaldo.estudo.repositories.CategoryRepository;
+import com.ronaldo.estudo.repositories.OrderItemRepository;
+import com.ronaldo.estudo.repositories.OrderRepository;
+import com.ronaldo.estudo.repositories.ProductRepository;
+import com.ronaldo.estudo.repositories.UserRepository;
 
 @Configuration
 @Profile("test")
@@ -33,20 +33,20 @@ public class TestConfig implements CommandLineRunner {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
-	
+
 	@Autowired
 	private ProductRepository productRepository;
 
 	@Autowired
 	private OrderItemRepository orderItemRepository;
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 
 		Category cat1 = new Category(null, "Electronics");
 		Category cat2 = new Category(null, "Books");
 		Category cat3 = new Category(null, "Computers");
-		
+
 		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
 		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
 		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
@@ -74,14 +74,14 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
-		
+
 		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
 		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
 		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 
-		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));	
-		
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
 		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 		o1.setPayment(pay1);
 

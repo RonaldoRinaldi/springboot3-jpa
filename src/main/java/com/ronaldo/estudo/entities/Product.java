@@ -1,4 +1,4 @@
-package com.educandoweb.course.entities;
+package com.ronaldo.estudo.entities;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -35,7 +35,7 @@ public class Product implements Serializable {
 
 	@OneToMany(mappedBy = "id.product")
 	private Set<OrderItem> items = new HashSet<>();
-	
+
 	public Product() {
 	}
 
@@ -100,7 +100,7 @@ public class Product implements Serializable {
 		}
 		return set;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

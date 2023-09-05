@@ -1,4 +1,4 @@
-package com.educandoweb.course.services.exceptions;
+package com.ronaldo.estudo.services.exceptions;
 
 public class DatabaseException extends RuntimeException {
 

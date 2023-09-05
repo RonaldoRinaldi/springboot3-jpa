@@ -1,4 +1,4 @@
-package com.educandoweb.course.services;
+package com.ronaldo.estudo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.educandoweb.course.entities.Category;
-import com.educandoweb.course.repositories.CategoryRepository;
+import com.ronaldo.estudo.entities.Category;
+import com.ronaldo.estudo.repositories.CategoryRepository;
 
 @Service
 public class CategoryService {

@@ -1,9 +1,9 @@
-package com.educandoweb.course.repositories;
+package com.ronaldo.estudo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.educandoweb.course.entities.OrderItem;
-import com.educandoweb.course.entities.pk.OrderItemPK;
+import com.ronaldo.estudo.entities.OrderItem;
+import com.ronaldo.estudo.entities.pk.OrderItemPK;
 
 public interface OrderItemRepository extends JpaRepository<OrderItem, OrderItemPK> {
 
